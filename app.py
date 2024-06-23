@@ -100,13 +100,11 @@ def get_todos():
 @app.route('/todo/<ulid>', methods=['PUT'])
 def update_todo(ulid):
     try:
-        # Find the todo by ULID
         todo = Todo.query.filter_by(id=ulid).first()
 
         if not todo:
             return jsonify({"error": "Todo not found"}), 404
 
-        # Get changes from query parameters
         name = request.args.get('name', todo.name)
         description = request.args.get('description', todo.description)
         is_Completed = request.args.get('is_Completed', todo.is_Completed)
