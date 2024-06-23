@@ -1,0 +1,3 @@
+Password : admin
+user : postgres
+port : 5432
